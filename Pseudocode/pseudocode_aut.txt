@@ -1,0 +1,81 @@
+Count automorphism:
+# PS = Permutation Set
+1) go down the trivial mapping add trivial permutation PS
+2) for every trivial branch we add to the stack
+3) once we reached the base pop the stack and go back to the parent.
+4) if parent has children select min label to branch too, and pop current vertex from stack
+5) add child too PS
+6) select top value in stack and go too it
+7) repeat until stack is empty
+
+# keep list of visited vertices and don't add a vertex to that stack if it was added previously too stack
+
+Goals for tomorrow:
+    Write pseudocode
+    Write code
+    Test
+    IF we get all that done
+    then plan report
+
+G1 = graph_1
+G2 = graph_2
+
+# boolean = discrete coloring
+boolean = fast_refine(G1,G2)
+
+if boolean == True:
+    G = G1.copy
+    G' = G1.copy
+
+    popstack = new stack()
+    matchingStack = new stack()
+    PS = new set()
+
+    def generateAut(X,Y,G,G', cnt):
+        alpha = {}
+        for index in range(len(d)):
+            alpha[X[index]] = index + 1
+            alpha[Y[index]] = index + 1
+
+        coloring = fast_refine(G + G', alpha)
+
+        if coloring is discrete:
+            # then the vertex is a leaf
+            PS.add(coloring)
+            return true
+
+        else if no automorphism:
+            return false
+
+        else if stable coloring:
+
+            color = from the current colors in G, select one which has a overall degree >= 2
+            v = randomly select a vertex in this color
+
+            #matching
+
+            trivial = fast refine with vertex to same vertex mapping is stable
+
+                if trivial:
+                    popstack.add(v)
+
+            while popstack != empty
+
+                if trivial == False:
+                    remove first index from color because vertex to vertex clone mapping will result in no automorphism
+
+                for vertex in color : # assume color has vertex clone as first index
+                        success = generateAut(X + v, Y + vertex, G, G') # vertex to vertex clone mapping start
+
+                        if success and v is not at top of stack
+                            return true
+
+                popstack.pop()
+
+            #matching(vertex) = is function to find possible matching which is done by the stable check) => this will output the possible matching =>return list
+            for match in matching(v):
+                if(match == vertex ID):
+                    popstack.add(match) => we add trivial to the stack
+                else:
+                    matchingStack.add(match)
+                    #we put it in the matching list which will be used when we popped the value

@@ -1,0 +1,45 @@
+refine(colour)
+
+counter = dict vertex to number
+L is a dict that maps colour to a set of vertices
+
+for vertex in colour:
+    for q' in vertex.neighbours:
+
+        L.add(q'.colour)
+
+        if q' not in counter:
+            counter[q'] = 1
+        else
+            counter[q'] += 1
+
+for each color in L:
+    A is a dict that maps counter number to partition
+    for vertex in L[colour]:
+        i = counter[vertex]
+
+        if i is not in A:
+            A[i] = [vertex]
+
+        else
+            A[i].append(vertex)
+
+    Ci = color.length
+
+    largest_partition = index of the max(A.values length)
+
+    for i in A:
+
+        if len(A[i]) < Ci:
+            new_colour = max_colour + 1
+            color_class[color].removed(everything in A[i])
+            color_class[new_colour].push(everything in A[i])
+            coloring[everything in A[i]] = new_colour
+
+            if color is in queue:
+                queue.push(new_colour)
+
+            else if i != largest_partition:
+                queue.push(new_colour)
+
+            max_colour = new_colour
